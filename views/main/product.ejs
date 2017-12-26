@@ -1,0 +1,36 @@
+<% layout("layout") -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="<%= product.image %>">
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <h3><%= product.name %></h3>
+            <h1>$<%= product.price %></h1>
+
+            <form method="post">
+                <div class="btn-group" role="group" aria-label="...">
+                    <input type="hidden" name="quantity" id="quantity" value="1">
+                    <button type="button" id="minus" class="btn btn-default">-</button>
+                    <button type="button" id="total" class="btn btn-default">1</button>
+                    <button type="button" id="plus" class="btn btn-default">+</button>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="product_id" id="quantity" value="<%= product._id %>">
+                    <input type="hidden" name="priceHidden" id="priceHidden" value="<%= product.price %>">
+                    <input type="text" class="form-control" name="item" value="<%= product.name %>">
+                    <input type="text" class="form-control" id="priceValue" name="priceValue" value="<%= product.price %>">
+                </div>
+                <% if (user) { %>
+                <button type="submit" class="btn btn-success btn-lg">Add To Cart</button>
+                <% } else { %>
+                <a class="btn btn-primary btn-lg" href="/signup">Sign Up to begin buying !</a>                
+                <% } %>
+            </form>
+        </div>
+    </div>
+</div>

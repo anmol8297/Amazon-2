@@ -1,0 +1,20 @@
+<% layout("layout") -%>
+
+<div class="container">
+    <div class="row">
+        <% for (var i = 0 ; i < products.length ; i++) { %>
+        <div class="col-md-4 col-sm-12">
+            <a href="/product/<%= products[i]._id %>" style="padding:5px">
+                <div id="card-link" class="card">
+                    <img src="<%= products[i].image %>" class="card-img-top">
+                    <div class="card-block text-center">
+                        <h3 class="card-title"><%= products[i].name %></h3>
+                        <p class="card-text"><%= products[i].category.name %></p>
+                        <p class="card-text">$<%= products[i].price %></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% } %>
+    </div>
+</div>
